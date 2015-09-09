@@ -1,0 +1,117 @@
+Games in Go
+Past, Present, and Future
+
+Tim Anema
+CTO, Kiuni.com
+timanema@gmail.com
+http://timanema.com
+@timanema
+
+* First
+
+- I do not activley work in Games
+- I have never released a Game
+- I also cannot spell well, I am sure there are misteaks
+
+.image images/gopherbike.jpg
+
+* Past
+
+* Haunts: The Manse Macabre
+- Succesful kickstarter [[https://www.kickstarter.com/projects/2066438441/haunts-the-manse-macabre][kickstarter.com]]
+- [[https://www.kickstarter.com/projects/2066438441/haunts-the-manse-macabre/posts/373466][The original horror stories of go]].
+- Could not version code and libraries
+- Could not get it running again
+- Terribly Slow.
+ 
+.iframe https://www.youtube.com/embed/I7W8d2coEhc 315 420
+
+* Initial OpenGL Bindings
+- Archived here: [[https://github.com/go-gl-legacy]]
+- Tried to do too much and it was too hard to keep up with.
+- I suppose they just didnt want to keep programming to a moving target.
+
+.image images/opengl_logo.jpg
+
+* GC Oh No
+- GC was not great 
+- Stop the world, mark-and-sweep.
+- Devastating for framerate.
+
+.image images/garbage.jpg
+
+* Present
+
+* Pros
+- The language is plenty quick enough. Java and even Python(pygame) is used for game development. Why not go?
+- Easy interface to C libraries. (With some cons)
+- Safe, messy pointers are a thing of the past (for the most part. to be cont.)
+- Fast compliation
+- Native concurrency, no need for complicated co-routines
+- Cross-platform support
+
+* Cons
+- _I_don't_need_to_say_GC_
+- C FFI cross compliation is a pain.
+- Working with C interface means making some messy code. Unsafe pointers are a reality.
+
+.image images/gophersad.jpg
+
+* Go 1.5
+- A new concurrent, tri-color, mark-sweep collector garbage collector.  _Thank_you_Dijkstra_
+- Well below a 10 millisecond threshold.
+- Some reporting [[https://twitter.com/inconshreveable/status/620650786662555648][85% reduction in GC pause]]
+- Also some scheduler improvments that allowed to change the default GOMAXPROCS value (the number of concurrently executing goroutines) from 1 to the number of logical CPUs
+
+* Asset Bundling
+_Not_sure_about_this_one_
+
+- https://github.com/jteeuwen/go-bindata
+- https://github.com/omeid/go-resources
+
+.image images/package.jpg _ 400
+
+* Libs
+All these libs require a good knowledge of how they are used already or a sharp mind
+to translate docs from C++ to Go. 
+A good understanding of C++ wouldn't hurt either
+They will require spelunking into code as well.
+- OpenGL [[https://github.com/go-gl/gl]]
+- GLFW   [[https://github.com/go-gl/glfw]]  
+- SDL    [[https://github.com/veandco/go-sdl2]]   
+- SFML   [[https://github.com/drhodes/go-sfml]]  
+
+.image images/helmet.jpeg
+
+* Frameworks
+- Vu       [[https://github.com/gazed/vu]]
+- azul3d   [[https://github.com/azul3d]]
+- go3d     [[https://github.com/ungerik/go3d]] A performance oriented 2D/3D math package for Go
+
+*Abandonned*
+_do_not_touch_
+
+- GarageEngine - 2d game engine written in Go working on OpenGL. 
+- runningwild/glop - Glop (Game Library Of Power) written by The Haunts author
+
+* Current Examples
+Game on greenlight written in go [[http://steamcommunity.com/sharedfiles/filedetails/?id=498620019]]
+
+Simple cube in OpenGL [[https://github.com/go-gl/examples/blob/master/glfw31-gl21-cube/cube.go]]
+
+.image images/fancygopher.jpg _ 300
+
+* Future
+
+* Go 1.6
+- [[https://docs.google.com/document/d/1kBx98ulj5V5M9Zdeamy7v6ofZXX3yPziAf0V27A64Mo/edit][Promised optimizations still to the GC]]
+- Memory Tuning with GOGC Flag [[https://blog.golang.org/go15gc?utm_source=golangweekly&utm_medium=email]["This value controls the total size of the heap relative to the size of reachable objects."]]
+- [[https://github.com/golang/mobile]] Future mobile support for Android and IOS. Make a game, build for all platforms.
+
+.image images/gopherswrench.jpg _ 500
+
+* Last Notes
+Go may not be the perfect language for games, but...
+
+.image images/gophering.gif _ 500
+
